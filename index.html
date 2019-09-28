@@ -229,6 +229,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/small-white-git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追风逐梦者">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="空白">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/28/small-white-git/" itemprop="url">日常使用 git 小记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-28T12:02:12+08:00">
+                2019-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>使用 <code>git</code> 有些年头了，只会敲敲基础命令。写一篇小记，以后就不需要经常找度娘解惑了。</p>
+<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><h4 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h4><p><code>git config</code> 命令查询/设置/替换/取消设置选项。该名称实际上是由点(.)分隔键，该值将被转义。</p>
+<p>当安装 Git 后首先要做的事情是设置用户名称和 e-mail 地址。这是非常重要的，因为每次 Git 提交都会使用该信息。它被永远的嵌入到了你的提交中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;username&quot;</span><br><span class="line">$ git config --global user.email &quot;username email&quot;</span><br></pre></td></tr></table></figure>
+<p>如果想检查你的设置，可以使用 <code>git config --list</code> 命令来列出 Git 可以在该处找到的所有的设置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --list</span><br></pre></td></tr></table></figure>
+<h4 id="git-help"><a href="#git-help" class="headerlink" title="git help"></a>git help</h4><p><code>git help</code> 命令显示有关 Git 的帮助信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git help 命令</span><br></pre></td></tr></table></figure>
+<h4 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h4><p><code>git init</code> 命令初始化的版本库会生成两类文件：第一类是版本库目录 <code>.git</code> 目录，它里面存放的是版本的历史记录信息和实际项目的拷贝，可叫做“工作目录”。工作目录是一个包含有版本历史目录 <code>.git</code> 和项目源文件的目录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+<h4 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h4><p><code>git add</code> 命令将要提交的文件的信息添加到索引库中(将修改添加到暂存区)，以准备为下一次提交分段的内容。 它通常将现有路径的当前内容作为一个整体添加，但是通过一些选项，它也可以用于添加内容，只对所应用的工作树文件进行一些更改，或删除工作树中不存在的路径了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add &lt;path&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h4><p><code>git clone</code> 命令将存储库克隆到新创建的目录中，为克隆的存储库中的每个分支创建远程跟踪分支(使用 git branch -r 可见)，并从克隆检出的存储库作为当前活动分支的初始分支。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git clone &lt;版本库的网址&gt;</span><br><span class="line">$ git clone &lt;版本库的网址&gt; &lt;本地目录名&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h4><p><code>git status</code> 命令用于显示工作目录和暂存区的状态。使用此命令能看到那些修改被暂存到了, 哪些没有, 哪些文件没有被 <code>Git tracked</code> 到。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
+<h4 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h4><p><code>git diff</code> 命令用于显示提交和工作树等之间的更改。此命令比较的是工作目录中当前文件和暂存区域快照之间的差异,也就是修改之后还没有暂存起来的变化内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 比较的是工作目录(Working tree)和暂存区域快照(index)之间的差异 --&gt;</span><br><span class="line">$ git diff</span><br><span class="line">&lt;!-- 查看已经暂存起来的文件(staged)和上次提交时的快照之间(HEAD)的差异 - --&gt;</span><br><span class="line">$ git diff --cached</span><br><span class="line">$ git diff --staged</span><br><span class="line">&lt;!-- 显示工作版本(Working tree)和HEAD的差别 --&gt;</span><br><span class="line">$ git diff HEAD</span><br><span class="line">&lt;!-- 直接将两个分支上最新的提交做diff --&gt;</span><br><span class="line">$ git diff topic master</span><br><span class="line">&lt;!-- 查看简单的diff结果，可以加上--stat参数 --&gt;</span><br><span class="line">$ git diff --stat</span><br><span class="line">&lt;!-- 查看当前目录和另外一个分支(test)的差别 --&gt;</span><br><span class="line">$ git diff test</span><br><span class="line">&lt;!-- 比较上次提交和上上次提交 --&gt;</span><br><span class="line">$ git diff HEAD^ HEAD</span><br><span class="line">&lt;!-- 比较两个历史版本之间的差异 --&gt;</span><br><span class="line">$ git diff SHA1 SHA2</span><br></pre></td></tr></table></figure>
+<h4 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h4><p><code>git commit</code> 命令用于将更改记录(提交)到存储库。将索引的当前内容与描述更改的用户和日志消息一起存储在新的提交中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &quot;the commit message&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="git-reset"><a href="#git-reset" class="headerlink" title="git reset"></a>git reset</h4><p><code>git reset</code> 命令用于将当前 <code>HEAD</code> 复位到指定状态。一般用于撤消之前的一些操作(如：<code>git add</code>, <code>git commit</code>等)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset HEAD &lt;file&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h4><p><code>git rm</code> 命令从索引中删除文件，或从工作树和索引中删除文件。 git rm 不会从您的工作目录中删除文件。 (没有任何选项只能从工作树中删除文件，并将其保留在索引中;)要删除的文件必须与分支的提示相同，并且在索引中不能对其内容进行更新，尽管可以使用-f 选项覆盖(默认行为)。 当给出–cached 时，暂存区内容必须与分支的提示或磁盘上的文件相匹配，从而仅将文件从索引中删除。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm &lt;文件/文件夹&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="git-mv"><a href="#git-mv" class="headerlink" title="git mv"></a>git mv</h4><p><code>git mv</code> 命令用于移动或重命名文件，目录或符号链接。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git mv &lt;options&gt;… &lt;args&gt;…</span><br></pre></td></tr></table></figure>
+<h4 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h4><p><code>git branch</code> 命令用于列出，创建或删除分支。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 查看当前有哪些分支 --&gt;</span><br><span class="line">$ git branch</span><br><span class="line">&lt;!-- 新建一个分支 --&gt;</span><br><span class="line">$ git branch new_br</span><br><span class="line">&lt;!-- 查看本地和远程分支 --&gt;</span><br><span class="line">$ git branch -a</span><br><span class="line">&lt;!-- 修改分支的名字 --&gt;</span><br><span class="line">git branch -m dev1 dev2</span><br><span class="line">&lt;!--  删除远程分支 --&gt;</span><br><span class="line">$ git push origin --delete dev</span><br></pre></td></tr></table></figure>
+<h4 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git checkout"></a>git checkout</h4><p><code>git checkout</code> 命令用于切换分支或恢复工作树文件。<code>git checkout</code> 是 <code>git</code> 最常用的命令之一，同时也是一个很危险的命令，因为这条命令会重写工作区。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout dev</span><br></pre></td></tr></table></figure>
+<h4 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h4><p><code>git merge</code> 命令用于将两个或两个以上的开发历史加入(合并)一起。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge dev</span><br></pre></td></tr></table></figure>
+<h4 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h4><p><code>git log</code> 命令用于显示交日志信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git log</span><br></pre></td></tr></table></figure>
+<h4 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h4><p><code>git fetch</code> 命令用于从另一个存储库下载对象和引用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git fetch origin</span><br></pre></td></tr></table></figure>
+<h4 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h4><p><code>git pull</code> 命令用于从另一个存储库或本地分支获取并集成(整合)。git pull 命令的作用是：取回远程主机某个分支的更新，再与本地的指定分支合并，它的完整格式稍稍有点复杂。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h4><p><code>git push</code> 命令用于将本地分支的更新，推送到远程主机。它的格式与 git pull 命令相似。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="git-show"><a href="#git-show" class="headerlink" title="git show"></a>git show</h4><p><code>git show</code> 命令用于显示各种类型的对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show [options] &lt;object&gt;…​</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/zhengzhi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -398,167 +559,6 @@
 </ul>
 </li>
 </ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/small-white-git/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追风逐梦者">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="空白">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/28/small-white-git/" itemprop="url">日常使用 git 小记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-28T12:02:12+08:00">
-                2019-09-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>使用 <code>git</code> 有些年头了，只会敲敲基础命令。写一篇小记，以后就不需要经常找度娘解惑了。</p>
-<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><h4 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h4><p><code>git config</code> 命令查询/设置/替换/取消设置选项。该名称实际上是由点(.)分隔键，该值将被转义。</p>
-<p>当安装 Git 后首先要做的事情是设置用户名称和 e-mail 地址。这是非常重要的，因为每次 Git 提交都会使用该信息。它被永远的嵌入到了你的提交中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;username&quot;</span><br><span class="line">$ git config --global user.email &quot;username email&quot;</span><br></pre></td></tr></table></figure>
-<p>如果想检查你的设置，可以使用 <code>git config --list</code> 命令来列出 Git 可以在该处找到的所有的设置:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --list</span><br></pre></td></tr></table></figure>
-<h4 id="git-help"><a href="#git-help" class="headerlink" title="git help"></a>git help</h4><p><code>git help</code> 命令显示有关 Git 的帮助信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git help 命令</span><br></pre></td></tr></table></figure>
-<h4 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h4><p><code>git init</code> 命令初始化的版本库会生成两类文件：第一类是版本库目录 <code>.git</code> 目录，它里面存放的是版本的历史记录信息和实际项目的拷贝，可叫做“工作目录”。工作目录是一个包含有版本历史目录 <code>.git</code> 和项目源文件的目录。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
-<h4 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h4><p><code>git add</code> 命令将要提交的文件的信息添加到索引库中(将修改添加到暂存区)，以准备为下一次提交分段的内容。 它通常将现有路径的当前内容作为一个整体添加，但是通过一些选项，它也可以用于添加内容，只对所应用的工作树文件进行一些更改，或删除工作树中不存在的路径了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add &lt;path&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h4><p><code>git clone</code> 命令将存储库克隆到新创建的目录中，为克隆的存储库中的每个分支创建远程跟踪分支(使用 git branch -r 可见)，并从克隆检出的存储库作为当前活动分支的初始分支。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git clone &lt;版本库的网址&gt;</span><br><span class="line">$ git clone &lt;版本库的网址&gt; &lt;本地目录名&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h4><p><code>git status</code> 命令用于显示工作目录和暂存区的状态。使用此命令能看到那些修改被暂存到了, 哪些没有, 哪些文件没有被 <code>Git tracked</code> 到。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
-<h4 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h4><p><code>git diff</code> 命令用于显示提交和工作树等之间的更改。此命令比较的是工作目录中当前文件和暂存区域快照之间的差异,也就是修改之后还没有暂存起来的变化内容。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 比较的是工作目录(Working tree)和暂存区域快照(index)之间的差异 --&gt;</span><br><span class="line">$ git diff</span><br><span class="line">&lt;!-- 查看已经暂存起来的文件(staged)和上次提交时的快照之间(HEAD)的差异 - --&gt;</span><br><span class="line">$ git diff --cached</span><br><span class="line">$ git diff --staged</span><br><span class="line">&lt;!-- 显示工作版本(Working tree)和HEAD的差别 --&gt;</span><br><span class="line">$ git diff HEAD</span><br><span class="line">&lt;!-- 直接将两个分支上最新的提交做diff --&gt;</span><br><span class="line">$ git diff topic master</span><br><span class="line">&lt;!-- 查看简单的diff结果，可以加上--stat参数 --&gt;</span><br><span class="line">$ git diff --stat</span><br><span class="line">&lt;!-- 查看当前目录和另外一个分支(test)的差别 --&gt;</span><br><span class="line">$ git diff test</span><br><span class="line">&lt;!-- 比较上次提交和上上次提交 --&gt;</span><br><span class="line">$ git diff HEAD^ HEAD</span><br><span class="line">&lt;!-- 比较两个历史版本之间的差异 --&gt;</span><br><span class="line">$ git diff SHA1 SHA2</span><br></pre></td></tr></table></figure>
-<h4 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h4><p><code>git commit</code> 命令用于将更改记录(提交)到存储库。将索引的当前内容与描述更改的用户和日志消息一起存储在新的提交中。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &quot;the commit message&quot;</span><br></pre></td></tr></table></figure>
-<h4 id="git-reset"><a href="#git-reset" class="headerlink" title="git reset"></a>git reset</h4><p><code>git reset</code> 命令用于将当前 <code>HEAD</code> 复位到指定状态。一般用于撤消之前的一些操作(如：<code>git add</code>, <code>git commit</code>等)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset HEAD &lt;file&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h4><p><code>git rm</code> 命令从索引中删除文件，或从工作树和索引中删除文件。 git rm 不会从您的工作目录中删除文件。 (没有任何选项只能从工作树中删除文件，并将其保留在索引中;)要删除的文件必须与分支的提示相同，并且在索引中不能对其内容进行更新，尽管可以使用-f 选项覆盖(默认行为)。 当给出–cached 时，暂存区内容必须与分支的提示或磁盘上的文件相匹配，从而仅将文件从索引中删除。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm &lt;文件/文件夹&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="git-mv"><a href="#git-mv" class="headerlink" title="git mv"></a>git mv</h4><p><code>git mv</code> 命令用于移动或重命名文件，目录或符号链接。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git mv &lt;options&gt;… &lt;args&gt;…</span><br></pre></td></tr></table></figure>
-<h4 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h4><p><code>git branch</code> 命令用于列出，创建或删除分支。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 查看当前有哪些分支 --&gt;</span><br><span class="line">$ git branch</span><br><span class="line">&lt;!-- 新建一个分支 --&gt;</span><br><span class="line">$ git branch new_br</span><br><span class="line">&lt;!-- 查看本地和远程分支 --&gt;</span><br><span class="line">$ git branch -a</span><br><span class="line">&lt;!-- 修改分支的名字 --&gt;</span><br><span class="line">git branch -m dev1 dev2</span><br><span class="line">&lt;!--  删除远程分支 --&gt;</span><br><span class="line">$ git push origin --delete dev</span><br></pre></td></tr></table></figure>
-<h4 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git checkout"></a>git checkout</h4><p><code>git checkout</code> 命令用于切换分支或恢复工作树文件。<code>git checkout</code> 是 <code>git</code> 最常用的命令之一，同时也是一个很危险的命令，因为这条命令会重写工作区。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout dev</span><br></pre></td></tr></table></figure>
-<h4 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h4><p><code>git merge</code> 命令用于将两个或两个以上的开发历史加入(合并)一起。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge dev</span><br></pre></td></tr></table></figure>
-<h4 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h4><p><code>git log</code> 命令用于显示交日志信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git log</span><br></pre></td></tr></table></figure>
-<h4 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h4><p><code>git fetch</code> 命令用于从另一个存储库下载对象和引用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git fetch origin</span><br></pre></td></tr></table></figure>
-<h4 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h4><p><code>git pull</code> 命令用于从另一个存储库或本地分支获取并集成(整合)。git pull 命令的作用是：取回远程主机某个分支的更新，再与本地的指定分支合并，它的完整格式稍稍有点复杂。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h4><p><code>git push</code> 命令用于将本地分支的更新，推送到远程主机。它的格式与 git pull 命令相似。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="git-show"><a href="#git-show" class="headerlink" title="git show"></a>git show</h4><p><code>git show</code> 命令用于显示各种类型的对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show [options] &lt;object&gt;…​</span><br></pre></td></tr></table></figure>
 
           
         
@@ -874,6 +874,47 @@
 <li>实践是检验认识正确与否的唯一标准。</li>
 <li>实践是认识的最终目的。</li>
 </ul>
+<h4 id="考点-2：-从感性认识到理性认识的过程"><a href="#考点-2：-从感性认识到理性认识的过程" class="headerlink" title="考点 2： 从感性认识到理性认识的过程"></a><code>考点 2：</code> 从感性认识到理性认识的过程</h4><p>人的认识过程首先是从实践到认识，即在实际践的基础上从感性认识能动地发展到理性认识，这是认识过程中的第一次飞跃。<br>感性认识是人们通过感觉器官对事物的现象，对事物各个方面和外部联系的认识，包括感觉、知觉和表象三种形式。感性认识具有直接性和具体性的特点，它只是对事物表面现象的反映，还没有深入到事物内部的本质和规律，因而是认识发展的低级阶段。<br>理性认识使人们通过抽象思维而得到的关于事物的本质、事物的全体和内在联系的认识，包括概念、判断和推理三种形式。理性认识具有间接性和抽象性的特点，是认识发展的高级阶段。</p>
+<p>感性认识和理性认识是认识发展过程中两个不同的阶段，内容和形式上都有质的区别。但二者又是相互联系的，在实践的基础上达到辩证统一。</p>
+<ul>
+<li>二者是相互联系的。一方面理性认识依赖于感性认识，感性认识反映事物的现象，理性认识反映事物的本质，理性认识必须以感性认识为前提。另一方面，感性认识有待于深化、发展为理性认识。坚持感性认识有待于发展为理性认识，就是坚持了认识论中的辩证法</li>
+<li>二者是相互渗透的。一方面，感性认识中有理性认识因素；另一方面，理性认识中也渗透着感性的因素</li>
+</ul>
+<h4 id="考点-3：-从理性认识到实践的过程"><a href="#考点-3：-从理性认识到实践的过程" class="headerlink" title="考点 3： 从理性认识到实践的过程"></a><code>考点 3：</code> 从理性认识到实践的过程</h4><p>在实践的基础上从感性认识上升到理性认识，是认识过程中的第一次飞跃，达到了理性认识，认识运动并没有结束，还必须从理性认识回到实践，实现认识过程的第二次飞跃。从理性认识到实践是意义更为重大的的飞跃，这是因为：</p>
+<ul>
+<li>认识世界的目的在于把改造世界</li>
+<li>认识只有回到实践中去，才能得到检验和发展</li>
+</ul>
+<p>从理性认识到实践的飞跃，需要具备一定的条件：</p>
+<ul>
+<li>理性认识本身应该是正确的</li>
+<li>从实际出发，坚持理性认识和具体实践相结合的原则</li>
+<li>理性认识必须为群众所掌握</li>
+<li>理性认识付诸实践，要有一定的物质条件和手段</li>
+</ul>
+<h4 id="考点-4：-真理的绝对性和相对性"><a href="#考点-4：-真理的绝对性和相对性" class="headerlink" title="考点 4： 真理的绝对性和相对性"></a><code>考点 4：</code> 真理的绝对性和相对性</h4><p>真理的绝对性即绝对真理，是指：</p>
+<ul>
+<li>第一，任何真理都包含有不依赖于主体、不依赖于人和人类的客观内容，都是对客观事物及其规律的正确反映，这是无条件的、绝对的，从这个意义上说，承认真理的客观实在性也就承认了真理的绝对性；</li>
+<li>第二，每一真理的获得都是对无限发展的物质世界的进一步接近，真理的发展越来越全面、深刻地反映客观世界，不断达到新的广度和深度，这也是无条件的、绝对的，从这个意义上说，彻底承认世界的可执行也就承认了真理的绝对性。</li>
+</ul>
+<p>真理的相对性即相对真理，是指：</p>
+<ul>
+<li>第一，从认识的深度来看，任何真理只是对待特定对象一定程度、一定层次的正确反映，都不可能通客观事物及其规律完完全全意志。承认认识的近似性，承认认识有待于深化，也就承认了真理的相对性；</li>
+<li>第二，从认识的广度来看，每一个真理都是对无限发展着的物质世界在有限范围内的正确反映，任何真理都不可能穷尽客观世界的一切方面和一切过程。承认认识的有限性，承认认识有待于扩展，也就承认了真理的相对性。</li>
+</ul>
+<p>真理的绝对性和相对性是辩证统一的关系，主要表现在：</p>
+<ul>
+<li>第一，真理的绝对性与相对性是相互联系、不可分割的；</li>
+<li>第二，真理的绝对性和相对性是相互转化渗透的；</li>
+<li>第三，真理是一个从相对向绝对转化的过程，每一真理都是人类认识从相对走向绝对的无穷转化过程的环节。</li>
+</ul>
+<p>真理之所以是绝对与相对的统一，是因为：</p>
+<ul>
+<li>第一，作为认识客体的物质世界及其发展本身就是绝对性与相对性的统一，因为作为人民对物质世界本质及其规律的正确反映 —— 真理，当然也就是绝对与相对的统一；</li>
+<li>第二，人类的认识能力即是至上的，又是非至上的，因而作为人类的认识成果 —— 真理，当然也就是绝对与相对的统一；</li>
+<li>第三，检验真理的实践标准即是确定的，又是不确定的，因而被实践标准检验的真理，当然也就是绝对与相对的统一。</li>
+</ul>
+<p>真理绝对性与相对性辩证统一的原理，要求我门对待马克思主义的科学态度只能是既要坚持，又要发展，把坚持和发展同一起来，在坚持中发展，在发展中坚持。</p>
 <h3 id="社会存在和发展的基础和基本结构"><a href="#社会存在和发展的基础和基本结构" class="headerlink" title="社会存在和发展的基础和基本结构"></a>社会存在和发展的基础和基本结构</h3><h4 id="考点-1：-历史观的基本问题"><a href="#考点-1：-历史观的基本问题" class="headerlink" title="考点 1： 历史观的基本问题"></a><code>考点 1：</code> 历史观的基本问题</h4><p>社会历史观简称历史观，使人们对社会历史的根本观点和总的看法。社会历史观的基本问题是社会存在与社会意识之间的关系问题。<br>社会存在与社会意识的关系问题之所以是是社会历史观的基本问题，其主要依据在于：</p>
 <ul>
 <li>它是一切历史观都无法回避且必须首先回答的问题。</li>
