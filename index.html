@@ -229,167 +229,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/small-white-git/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追风逐梦者">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="空白">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/28/small-white-git/" itemprop="url">日常使用 git 小记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-28T12:02:12+08:00">
-                2019-09-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>使用 <code>git</code> 有些年头了，只会敲敲基础命令。写一篇小记，以后就不需要经常找度娘解惑了。</p>
-<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><h4 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h4><p><code>git config</code> 命令查询/设置/替换/取消设置选项。该名称实际上是由点(.)分隔键，该值将被转义。</p>
-<p>当安装 Git 后首先要做的事情是设置用户名称和 e-mail 地址。这是非常重要的，因为每次 Git 提交都会使用该信息。它被永远的嵌入到了你的提交中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;username&quot;</span><br><span class="line">$ git config --global user.email &quot;username email&quot;</span><br></pre></td></tr></table></figure>
-<p>如果想检查你的设置，可以使用 <code>git config --list</code> 命令来列出 Git 可以在该处找到的所有的设置:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --list</span><br></pre></td></tr></table></figure>
-<h4 id="git-help"><a href="#git-help" class="headerlink" title="git help"></a>git help</h4><p><code>git help</code> 命令显示有关 Git 的帮助信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git help 命令</span><br></pre></td></tr></table></figure>
-<h4 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h4><p><code>git init</code> 命令初始化的版本库会生成两类文件：第一类是版本库目录 <code>.git</code> 目录，它里面存放的是版本的历史记录信息和实际项目的拷贝，可叫做“工作目录”。工作目录是一个包含有版本历史目录 <code>.git</code> 和项目源文件的目录。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
-<h4 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h4><p><code>git add</code> 命令将要提交的文件的信息添加到索引库中(将修改添加到暂存区)，以准备为下一次提交分段的内容。 它通常将现有路径的当前内容作为一个整体添加，但是通过一些选项，它也可以用于添加内容，只对所应用的工作树文件进行一些更改，或删除工作树中不存在的路径了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add &lt;path&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h4><p><code>git clone</code> 命令将存储库克隆到新创建的目录中，为克隆的存储库中的每个分支创建远程跟踪分支(使用 git branch -r 可见)，并从克隆检出的存储库作为当前活动分支的初始分支。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git clone &lt;版本库的网址&gt;</span><br><span class="line">$ git clone &lt;版本库的网址&gt; &lt;本地目录名&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h4><p><code>git status</code> 命令用于显示工作目录和暂存区的状态。使用此命令能看到那些修改被暂存到了, 哪些没有, 哪些文件没有被 <code>Git tracked</code> 到。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
-<h4 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h4><p><code>git diff</code> 命令用于显示提交和工作树等之间的更改。此命令比较的是工作目录中当前文件和暂存区域快照之间的差异,也就是修改之后还没有暂存起来的变化内容。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 比较的是工作目录(Working tree)和暂存区域快照(index)之间的差异 --&gt;</span><br><span class="line">$ git diff</span><br><span class="line">&lt;!-- 查看已经暂存起来的文件(staged)和上次提交时的快照之间(HEAD)的差异 - --&gt;</span><br><span class="line">$ git diff --cached</span><br><span class="line">$ git diff --staged</span><br><span class="line">&lt;!-- 显示工作版本(Working tree)和HEAD的差别 --&gt;</span><br><span class="line">$ git diff HEAD</span><br><span class="line">&lt;!-- 直接将两个分支上最新的提交做diff --&gt;</span><br><span class="line">$ git diff topic master</span><br><span class="line">&lt;!-- 查看简单的diff结果，可以加上--stat参数 --&gt;</span><br><span class="line">$ git diff --stat</span><br><span class="line">&lt;!-- 查看当前目录和另外一个分支(test)的差别 --&gt;</span><br><span class="line">$ git diff test</span><br><span class="line">&lt;!-- 比较上次提交和上上次提交 --&gt;</span><br><span class="line">$ git diff HEAD^ HEAD</span><br><span class="line">&lt;!-- 比较两个历史版本之间的差异 --&gt;</span><br><span class="line">$ git diff SHA1 SHA2</span><br></pre></td></tr></table></figure>
-<h4 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h4><p><code>git commit</code> 命令用于将更改记录(提交)到存储库。将索引的当前内容与描述更改的用户和日志消息一起存储在新的提交中。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &quot;the commit message&quot;</span><br></pre></td></tr></table></figure>
-<h4 id="git-reset"><a href="#git-reset" class="headerlink" title="git reset"></a>git reset</h4><p><code>git reset</code> 命令用于将当前 <code>HEAD</code> 复位到指定状态。一般用于撤消之前的一些操作(如：<code>git add</code>, <code>git commit</code>等)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset HEAD &lt;file&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h4><p><code>git rm</code> 命令从索引中删除文件，或从工作树和索引中删除文件。 git rm 不会从您的工作目录中删除文件。 (没有任何选项只能从工作树中删除文件，并将其保留在索引中;)要删除的文件必须与分支的提示相同，并且在索引中不能对其内容进行更新，尽管可以使用-f 选项覆盖(默认行为)。 当给出–cached 时，暂存区内容必须与分支的提示或磁盘上的文件相匹配，从而仅将文件从索引中删除。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm &lt;文件/文件夹&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="git-mv"><a href="#git-mv" class="headerlink" title="git mv"></a>git mv</h4><p><code>git mv</code> 命令用于移动或重命名文件，目录或符号链接。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git mv &lt;options&gt;… &lt;args&gt;…</span><br></pre></td></tr></table></figure>
-<h4 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h4><p><code>git branch</code> 命令用于列出，创建或删除分支。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 查看当前有哪些分支 --&gt;</span><br><span class="line">$ git branch</span><br><span class="line">&lt;!-- 新建一个分支 --&gt;</span><br><span class="line">$ git branch new_br</span><br><span class="line">&lt;!-- 查看本地和远程分支 --&gt;</span><br><span class="line">$ git branch -a</span><br><span class="line">&lt;!-- 修改分支的名字 --&gt;</span><br><span class="line">git branch -m dev1 dev2</span><br><span class="line">&lt;!--  删除远程分支 --&gt;</span><br><span class="line">$ git push origin --delete dev</span><br></pre></td></tr></table></figure>
-<h4 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git checkout"></a>git checkout</h4><p><code>git checkout</code> 命令用于切换分支或恢复工作树文件。<code>git checkout</code> 是 <code>git</code> 最常用的命令之一，同时也是一个很危险的命令，因为这条命令会重写工作区。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout dev</span><br></pre></td></tr></table></figure>
-<h4 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h4><p><code>git merge</code> 命令用于将两个或两个以上的开发历史加入(合并)一起。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge dev</span><br></pre></td></tr></table></figure>
-<h4 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h4><p><code>git log</code> 命令用于显示交日志信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git log</span><br></pre></td></tr></table></figure>
-<h4 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h4><p><code>git fetch</code> 命令用于从另一个存储库下载对象和引用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git fetch origin</span><br></pre></td></tr></table></figure>
-<h4 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h4><p><code>git pull</code> 命令用于从另一个存储库或本地分支获取并集成(整合)。git pull 命令的作用是：取回远程主机某个分支的更新，再与本地的指定分支合并，它的完整格式稍稍有点复杂。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h4><p><code>git push</code> 命令用于将本地分支的更新，推送到远程主机。它的格式与 git pull 命令相似。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="git-show"><a href="#git-show" class="headerlink" title="git show"></a>git show</h4><p><code>git show</code> 命令用于显示各种类型的对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show [options] &lt;object&gt;…​</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/zhengzhi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -559,6 +398,167 @@
 </ul>
 </li>
 </ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/small-white-git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追风逐梦者">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="空白">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/28/small-white-git/" itemprop="url">日常使用 git 小记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-28T12:02:12+08:00">
+                2019-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>使用 <code>git</code> 有些年头了，只会敲敲基础命令。写一篇小记，以后就不需要经常找度娘解惑了。</p>
+<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><h4 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h4><p><code>git config</code> 命令查询/设置/替换/取消设置选项。该名称实际上是由点(.)分隔键，该值将被转义。</p>
+<p>当安装 Git 后首先要做的事情是设置用户名称和 e-mail 地址。这是非常重要的，因为每次 Git 提交都会使用该信息。它被永远的嵌入到了你的提交中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;username&quot;</span><br><span class="line">$ git config --global user.email &quot;username email&quot;</span><br></pre></td></tr></table></figure>
+<p>如果想检查你的设置，可以使用 <code>git config --list</code> 命令来列出 Git 可以在该处找到的所有的设置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --list</span><br></pre></td></tr></table></figure>
+<h4 id="git-help"><a href="#git-help" class="headerlink" title="git help"></a>git help</h4><p><code>git help</code> 命令显示有关 Git 的帮助信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git help 命令</span><br></pre></td></tr></table></figure>
+<h4 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h4><p><code>git init</code> 命令初始化的版本库会生成两类文件：第一类是版本库目录 <code>.git</code> 目录，它里面存放的是版本的历史记录信息和实际项目的拷贝，可叫做“工作目录”。工作目录是一个包含有版本历史目录 <code>.git</code> 和项目源文件的目录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+<h4 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h4><p><code>git add</code> 命令将要提交的文件的信息添加到索引库中(将修改添加到暂存区)，以准备为下一次提交分段的内容。 它通常将现有路径的当前内容作为一个整体添加，但是通过一些选项，它也可以用于添加内容，只对所应用的工作树文件进行一些更改，或删除工作树中不存在的路径了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add &lt;path&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h4><p><code>git clone</code> 命令将存储库克隆到新创建的目录中，为克隆的存储库中的每个分支创建远程跟踪分支(使用 git branch -r 可见)，并从克隆检出的存储库作为当前活动分支的初始分支。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git clone &lt;版本库的网址&gt;</span><br><span class="line">$ git clone &lt;版本库的网址&gt; &lt;本地目录名&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h4><p><code>git status</code> 命令用于显示工作目录和暂存区的状态。使用此命令能看到那些修改被暂存到了, 哪些没有, 哪些文件没有被 <code>Git tracked</code> 到。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
+<h4 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h4><p><code>git diff</code> 命令用于显示提交和工作树等之间的更改。此命令比较的是工作目录中当前文件和暂存区域快照之间的差异,也就是修改之后还没有暂存起来的变化内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 比较的是工作目录(Working tree)和暂存区域快照(index)之间的差异 --&gt;</span><br><span class="line">$ git diff</span><br><span class="line">&lt;!-- 查看已经暂存起来的文件(staged)和上次提交时的快照之间(HEAD)的差异 - --&gt;</span><br><span class="line">$ git diff --cached</span><br><span class="line">$ git diff --staged</span><br><span class="line">&lt;!-- 显示工作版本(Working tree)和HEAD的差别 --&gt;</span><br><span class="line">$ git diff HEAD</span><br><span class="line">&lt;!-- 直接将两个分支上最新的提交做diff --&gt;</span><br><span class="line">$ git diff topic master</span><br><span class="line">&lt;!-- 查看简单的diff结果，可以加上--stat参数 --&gt;</span><br><span class="line">$ git diff --stat</span><br><span class="line">&lt;!-- 查看当前目录和另外一个分支(test)的差别 --&gt;</span><br><span class="line">$ git diff test</span><br><span class="line">&lt;!-- 比较上次提交和上上次提交 --&gt;</span><br><span class="line">$ git diff HEAD^ HEAD</span><br><span class="line">&lt;!-- 比较两个历史版本之间的差异 --&gt;</span><br><span class="line">$ git diff SHA1 SHA2</span><br></pre></td></tr></table></figure>
+<h4 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h4><p><code>git commit</code> 命令用于将更改记录(提交)到存储库。将索引的当前内容与描述更改的用户和日志消息一起存储在新的提交中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &quot;the commit message&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="git-reset"><a href="#git-reset" class="headerlink" title="git reset"></a>git reset</h4><p><code>git reset</code> 命令用于将当前 <code>HEAD</code> 复位到指定状态。一般用于撤消之前的一些操作(如：<code>git add</code>, <code>git commit</code>等)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset HEAD &lt;file&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h4><p><code>git rm</code> 命令从索引中删除文件，或从工作树和索引中删除文件。 git rm 不会从您的工作目录中删除文件。 (没有任何选项只能从工作树中删除文件，并将其保留在索引中;)要删除的文件必须与分支的提示相同，并且在索引中不能对其内容进行更新，尽管可以使用-f 选项覆盖(默认行为)。 当给出–cached 时，暂存区内容必须与分支的提示或磁盘上的文件相匹配，从而仅将文件从索引中删除。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm &lt;文件/文件夹&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="git-mv"><a href="#git-mv" class="headerlink" title="git mv"></a>git mv</h4><p><code>git mv</code> 命令用于移动或重命名文件，目录或符号链接。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git mv &lt;options&gt;… &lt;args&gt;…</span><br></pre></td></tr></table></figure>
+<h4 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h4><p><code>git branch</code> 命令用于列出，创建或删除分支。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 查看当前有哪些分支 --&gt;</span><br><span class="line">$ git branch</span><br><span class="line">&lt;!-- 新建一个分支 --&gt;</span><br><span class="line">$ git branch new_br</span><br><span class="line">&lt;!-- 查看本地和远程分支 --&gt;</span><br><span class="line">$ git branch -a</span><br><span class="line">&lt;!-- 修改分支的名字 --&gt;</span><br><span class="line">git branch -m dev1 dev2</span><br><span class="line">&lt;!--  删除远程分支 --&gt;</span><br><span class="line">$ git push origin --delete dev</span><br></pre></td></tr></table></figure>
+<h4 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git checkout"></a>git checkout</h4><p><code>git checkout</code> 命令用于切换分支或恢复工作树文件。<code>git checkout</code> 是 <code>git</code> 最常用的命令之一，同时也是一个很危险的命令，因为这条命令会重写工作区。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout dev</span><br></pre></td></tr></table></figure>
+<h4 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h4><p><code>git merge</code> 命令用于将两个或两个以上的开发历史加入(合并)一起。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge dev</span><br></pre></td></tr></table></figure>
+<h4 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h4><p><code>git log</code> 命令用于显示交日志信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git log</span><br></pre></td></tr></table></figure>
+<h4 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h4><p><code>git fetch</code> 命令用于从另一个存储库下载对象和引用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git fetch origin</span><br></pre></td></tr></table></figure>
+<h4 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h4><p><code>git pull</code> 命令用于从另一个存储库或本地分支获取并集成(整合)。git pull 命令的作用是：取回远程主机某个分支的更新，再与本地的指定分支合并，它的完整格式稍稍有点复杂。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h4><p><code>git push</code> 命令用于将本地分支的更新，推送到远程主机。它的格式与 git pull 命令相似。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="git-show"><a href="#git-show" class="headerlink" title="git show"></a>git show</h4><p><code>git show</code> 命令用于显示各种类型的对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show [options] &lt;object&gt;…​</span><br></pre></td></tr></table></figure>
 
           
         
@@ -797,7 +797,7 @@
 <h4 id="考点-6：-质量互变规律的方法论意义"><a href="#考点-6：-质量互变规律的方法论意义" class="headerlink" title="考点 6： 质量互变规律的方法论意义"></a><code>考点 6：</code> 质量互变规律的方法论意义</h4><ul>
 <li>既然任何事物都是质与量的统一，就要把对事物的定性研究与定量研究结合起来，定性研究是认识的基础，定量研究是认识的深化和精确化</li>
 <li>既然任何事物都有自己特定的度，就要使我们的认识和实践与事物本身的度相适合，掌握适度原则</li>
-<li>既然事物发展变化是量变与质变的统一，就要处理好量变与质变的关系，既要重视点滴的积累，又要善于捉住机遇，将事物推向新的发展阶段</li>
+<li>既然事物发展变化是量变与质变的统一，就要处理好量变与质变的关系，既要重视点滴的积累，又要善于抓住机遇，将事物推向新的发展阶段</li>
 </ul>
 <h4 id="考点-7：-否定之否定规律及其方法论意义"><a href="#考点-7：-否定之否定规律及其方法论意义" class="headerlink" title="考点 7： 否定之否定规律及其方法论意义"></a><code>考点 7：</code> 否定之否定规律及其方法论意义</h4><p>否定之否定规律表明，事物发展的总方面、总趋势是前进的、上升的，事物发展的具体道路又是曲折的、迂回的；事物自我发展的道路是前进性和曲折性的统一。我们不能只看到发展道路的前进性，而看不到事物前进道路的曲折性，把事物想得过于简单，以至于犯急躁冒进的毛病；也不能只看到发展道路的曲折性，而看不到事物是在曲折中前进的，被困难吓倒，悲观失望，进而无所作为</p>
 <h4 id="考点-8：-现象与本质的辩证关系及其方法意义"><a href="#考点-8：-现象与本质的辩证关系及其方法意义" class="headerlink" title="考点 8： 现象与本质的辩证关系及其方法意义"></a><code>考点 8：</code> 现象与本质的辩证关系及其方法意义</h4><p>现象与本质是对立统一的辩证关系：</p>
@@ -1058,7 +1058,7 @@
 </ul>
 <h4 id="考点-2：-马哲中国化的历史进程"><a href="#考点-2：-马哲中国化的历史进程" class="headerlink" title="考点 2： 马哲中国化的历史进程"></a><code>考点 2：</code> 马哲中国化的历史进程</h4><ul>
 <li>党在领导中国革命、建设和改革的过程中，以毛浙东为主要代表的中国共产党人，坚持把马克思主义基本原理同中国革命、建设和改革的具体实际相结合，创造性回答了在中国如何进行新民主主义革命并顺利地向社会主义转变等一系列基本问题，创立了毛泽东思想，第一次实现了马克思主义的中国化。</li>
-<li>党的十一届三中全会以来，以邓小平为主要代表的中国共产党人在总结国内外社会主义建设的历史经验、特别是改革开放以来的新鲜经验的基础上，捉住什么是社会主义，怎么样建设社会主义这个根本问题，深刻揭示了社会主义的本质，形成了党在社会主义初级阶段的路线、方针、政策，回答了在中国这样经济文化比较落后的国家如何建设社会主义、图和巩固和发展社会主义的一系列基本问题，开辟了建设中国特色社会主义的正确道路，创立了邓小平理论，推进了马克思主义的中国化。</li>
+<li>党的十一届三中全会以来，以邓小平为主要代表的中国共产党人在总结国内外社会主义建设的历史经验、特别是改革开放以来的新鲜经验的基础上，抓住什么是社会主义，怎么样建设社会主义这个根本问题，深刻揭示了社会主义的本质，形成了党在社会主义初级阶段的路线、方针、政策，回答了在中国这样经济文化比较落后的国家如何建设社会主义、图和巩固和发展社会主义的一系列基本问题，开辟了建设中国特色社会主义的正确道路，创立了邓小平理论，推进了马克思主义的中国化。</li>
 <li>党的十一届四中全会以来，以江泽民为主要代表的中国共产党人，根据国内外形势和党的历史方位新变化，进一步回答了什么是社会主义，怎么样建设社会主义的问题，，创造性地回答了在长期执政的历史条件下假设什么样的党，怎么样建设党的问题，深化了对中国特色社会主义的认识，创立了”三个代表“重要思想，实现了党的指导思想的又一次与时俱进，从而进一步推进了马克思主义的中国化。</li>
 <li>党的十六大以来，以胡锦涛为主要代表的中国共产党人，紧密联系国内外形势的发展变化，提出了科学发展观、构建社会主义和谐社会、加强党的执政能力建设和先进性建设、建设创新型国家、建设资源节约型和环境友好型、建设社会主义新农村、树立社会主义荣辱观、走和平发展道路、推动建设和谐世界等重大战略思想，创造性地回答了中国实现什么样的发展和怎么发展的重大问题，开拓了马克思主义中国化的新境界，继续推进着马克思主义中国化的发发展进程。</li>
 <li>党的十八大以来，以习近平同志为核心的党中央，紧密结合新的时代条件和实践要求，以全新的视野深化对共产党执政的规律、社会主义建设规律、人类社会发展规律的认识，进行艰辛理论探索，取得重大的理论创新成果，形成了习近平新时代中国特色社会主义思想。从理论和实践结合水系统回答新时代坚持和发展什么样的的中国特色社会主义、怎样坚持和发展中国特色社会主义，包括新时代坚持和发展中国特色社会主义的总目标、总任务、总体布局、战略布局和发展方向、发展方式、发展动力、战略步骤、外部条件、政治保证等基本问题，并且要根据新的实践对经济、政治、法治、科技、文化、教育、民生、民族、宗教、社会、生态文明、国家安全、国防和军队、”一国两制“ 和祖国统一、统一战线、外交、党的建设等各方面做出理论分析和政策指导，以利于更好地坚持和发展中国特色社会主义。</li>
@@ -1077,7 +1077,235 @@
 <li>马哲中国化理论成果，为全党和全国人民提供了强大的精神支柱，使中华民主以崭新的面貌自立于世界民主之林；</li>
 <li>马哲中国化理论成果，体系了对待马哲的科学态度和优良作风，不断地开拓着马哲在中国发展的新境界。</li>
 </ul>
-<h3 id="新民主主义革命理论和社会主义改造理论"><a href="#新民主主义革命理论和社会主义改造理论" class="headerlink" title="新民主主义革命理论和社会主义改造理论"></a>新民主主义革命理论和社会主义改造理论</h3><h4 id="考点-1：-近代中国的社会性质及其基本特点"><a href="#考点-1：-近代中国的社会性质及其基本特点" class="headerlink" title="考点 1： 近代中国的社会性质及其基本特点"></a><code>考点 1：</code> 近代中国的社会性质及其基本特点</h4><h4 id="考点-2：-近代中国革命的人物和性质"><a href="#考点-2：-近代中国革命的人物和性质" class="headerlink" title="考点 2： 近代中国革命的人物和性质"></a><code>考点 2：</code> 近代中国革命的人物和性质</h4><h4 id="考点-3：-新民主主义革命的基本纲领"><a href="#考点-3：-新民主主义革命的基本纲领" class="headerlink" title="考点 3： 新民主主义革命的基本纲领"></a><code>考点 3：</code> 新民主主义革命的基本纲领</h4><h4 id="考点-4：-新民主主义革命的基本经验"><a href="#考点-4：-新民主主义革命的基本经验" class="headerlink" title="考点 4： 新民主主义革命的基本经验"></a><code>考点 4：</code> 新民主主义革命的基本经验</h4><h4 id="考点-5：-新民主主义社会的基本特征"><a href="#考点-5：-新民主主义社会的基本特征" class="headerlink" title="考点 5： 新民主主义社会的基本特征"></a><code>考点 5：</code> 新民主主义社会的基本特征</h4><h4 id="考点-6：-党在过度时期的总路线"><a href="#考点-6：-党在过度时期的总路线" class="headerlink" title="考点 6： 党在过度时期的总路线"></a><code>考点 6：</code> 党在过度时期的总路线</h4><h4 id="考点-7：-社会主义改造的历史经验"><a href="#考点-7：-社会主义改造的历史经验" class="headerlink" title="考点 7： 社会主义改造的历史经验"></a><code>考点 7：</code> 社会主义改造的历史经验</h4><h4 id="考点-8：-确立社会主义制度的重要意义"><a href="#考点-8：-确立社会主义制度的重要意义" class="headerlink" title="考点 8： 确立社会主义制度的重要意义"></a><code>考点 8：</code> 确立社会主义制度的重要意义</h4><h3 id="社会主义本质和初级阶段理论"><a href="#社会主义本质和初级阶段理论" class="headerlink" title="社会主义本质和初级阶段理论"></a>社会主义本质和初级阶段理论</h3><h4 id="考点-1：-社会主义本质理论的科学内涵"><a href="#考点-1：-社会主义本质理论的科学内涵" class="headerlink" title="考点 1： 社会主义本质理论的科学内涵"></a><code>考点 1：</code> 社会主义本质理论的科学内涵</h4><h4 id="考点-2：-社会主义本质理论的重大指导意义"><a href="#考点-2：-社会主义本质理论的重大指导意义" class="headerlink" title="考点 2： 社会主义本质理论的重大指导意义"></a><code>考点 2：</code> 社会主义本质理论的重大指导意义</h4><h4 id="考点-3：-社会主义的根本任务是发展生产力的原因"><a href="#考点-3：-社会主义的根本任务是发展生产力的原因" class="headerlink" title="考点 3： 社会主义的根本任务是发展生产力的原因"></a><code>考点 3：</code> 社会主义的根本任务是发展生产力的原因</h4><h4 id="考点-4：-社会主义初级阶段长期性的原因"><a href="#考点-4：-社会主义初级阶段长期性的原因" class="headerlink" title="考点 4： 社会主义初级阶段长期性的原因"></a><code>考点 4：</code> 社会主义初级阶段长期性的原因</h4><h4 id="考点-5：-社会主义初级阶段理论的重要意义"><a href="#考点-5：-社会主义初级阶段理论的重要意义" class="headerlink" title="考点 5： 社会主义初级阶段理论的重要意义"></a><code>考点 5：</code> 社会主义初级阶段理论的重要意义</h4><h4 id="考点-6：-党在社会主义初级阶段的基本路线"><a href="#考点-6：-党在社会主义初级阶段的基本路线" class="headerlink" title="考点 6： 党在社会主义初级阶段的基本路线"></a><code>考点 6：</code> 党在社会主义初级阶段的基本路线</h4><h4 id="考点-7：-邓小平社会主义本质论的特点"><a href="#考点-7：-邓小平社会主义本质论的特点" class="headerlink" title="考点 7： 邓小平社会主义本质论的特点"></a><code>考点 7：</code> 邓小平社会主义本质论的特点</h4><h4 id="考点-8：-”三步走“打杂战略的内容及特点"><a href="#考点-8：-”三步走“打杂战略的内容及特点" class="headerlink" title="考点 8： ”三步走“打杂战略的内容及特点"></a><code>考点 8：</code> ”三步走“打杂战略的内容及特点</h4><h4 id="考点-9：-”全面建成小康社会“奋斗目标的新要求"><a href="#考点-9：-”全面建成小康社会“奋斗目标的新要求" class="headerlink" title="考点 9： ”全面建成小康社会“奋斗目标的新要求"></a><code>考点 9：</code> ”全面建成小康社会“奋斗目标的新要求</h4><h3 id="社会主义改革和对外开放"><a href="#社会主义改革和对外开放" class="headerlink" title="社会主义改革和对外开放"></a>社会主义改革和对外开放</h3><h4 id="考点-1：-社会主义社会的基本矛盾"><a href="#考点-1：-社会主义社会的基本矛盾" class="headerlink" title="考点 1： 社会主义社会的基本矛盾"></a><code>考点 1：</code> 社会主义社会的基本矛盾</h4><h4 id="考点-2：-改革是中国的第二次革命的原因"><a href="#考点-2：-改革是中国的第二次革命的原因" class="headerlink" title="考点 2： 改革是中国的第二次革命的原因"></a><code>考点 2：</code> 改革是中国的第二次革命的原因</h4><h4 id="考点-3：-正确处理改革、发展、稳定的关系"><a href="#考点-3：-正确处理改革、发展、稳定的关系" class="headerlink" title="考点 3： 正确处理改革、发展、稳定的关系"></a><code>考点 3：</code> 正确处理改革、发展、稳定的关系</h4><h4 id="考点-4：-我国对外开放的成就"><a href="#考点-4：-我国对外开放的成就" class="headerlink" title="考点 4： 我国对外开放的成就"></a><code>考点 4：</code> 我国对外开放的成就</h4><h4 id="考点-5：-不断提高对外开放水平的具体做法"><a href="#考点-5：-不断提高对外开放水平的具体做法" class="headerlink" title="考点 5： 不断提高对外开放水平的具体做法"></a><code>考点 5：</code> 不断提高对外开放水平的具体做法</h4><h3 id="建设中国特色社会主义经济"><a href="#建设中国特色社会主义经济" class="headerlink" title="建设中国特色社会主义经济"></a>建设中国特色社会主义经济</h3><h4 id="考点-1：-以公有制为主体、多种所有制经济共同发展的必然性"><a href="#考点-1：-以公有制为主体、多种所有制经济共同发展的必然性" class="headerlink" title="考点 1： 以公有制为主体、多种所有制经济共同发展的必然性"></a><code>考点 1：</code> 以公有制为主体、多种所有制经济共同发展的必然性</h4><h4 id="考点-2：-公有制主体地位的体现及坚持公有制主体地位的原因"><a href="#考点-2：-公有制主体地位的体现及坚持公有制主体地位的原因" class="headerlink" title="考点 2： 公有制主体地位的体现及坚持公有制主体地位的原因"></a><code>考点 2：</code> 公有制主体地位的体现及坚持公有制主体地位的原因</h4><h4 id="考点-3：-按劳分配的内容及其必然性"><a href="#考点-3：-按劳分配的内容及其必然性" class="headerlink" title="考点 3： 按劳分配的内容及其必然性"></a><code>考点 3：</code> 按劳分配的内容及其必然性</h4><h4 id="考点-4：-社会主义初级阶段实行以按劳分配为主体、多种分配方式并存的客观必然性"><a href="#考点-4：-社会主义初级阶段实行以按劳分配为主体、多种分配方式并存的客观必然性" class="headerlink" title="考点 4： 社会主义初级阶段实行以按劳分配为主体、多种分配方式并存的客观必然性"></a><code>考点 4：</code> 社会主义初级阶段实行以按劳分配为主体、多种分配方式并存的客观必然性</h4><h4 id="考点-5：-社会主义市场经济体制的基本特征"><a href="#考点-5：-社会主义市场经济体制的基本特征" class="headerlink" title="考点 5： 社会主义市场经济体制的基本特征"></a><code>考点 5：</code> 社会主义市场经济体制的基本特征</h4><h4 id="考点-6：-新型工业化道路的特征"><a href="#考点-6：-新型工业化道路的特征" class="headerlink" title="考点 6： 新型工业化道路的特征"></a><code>考点 6：</code> 新型工业化道路的特征</h4><h4 id="考点-7：-乡村振兴战略"><a href="#考点-7：-乡村振兴战略" class="headerlink" title="考点 7： 乡村振兴战略"></a><code>考点 7：</code> 乡村振兴战略</h4><h4 id="考点-8：-建设资源节约型、环境友好型社会的具体做法"><a href="#考点-8：-建设资源节约型、环境友好型社会的具体做法" class="headerlink" title="考点 8： 建设资源节约型、环境友好型社会的具体做法"></a><code>考点 8：</code> 建设资源节约型、环境友好型社会的具体做法</h4><h3 id="建设中国特色社会主义政治"><a href="#建设中国特色社会主义政治" class="headerlink" title="建设中国特色社会主义政治"></a>建设中国特色社会主义政治</h3><h4 id="考点-1：-党的领导、人民当家做主和依法治国之间的关系"><a href="#考点-1：-党的领导、人民当家做主和依法治国之间的关系" class="headerlink" title="考点 1： 党的领导、人民当家做主和依法治国之间的关系"></a><code>考点 1：</code> 党的领导、人民当家做主和依法治国之间的关系</h4><p>党的十九大报告明确指出，我国是工人阶级领导的，以工农联盟为基础的人民民主专政的社会主义国家，国家一切权利属于人民。我国社会主义民主是维护人民根本利益的最广泛、最真实、最管用的民主。发展社会主义民主政治就是要体现人民意志、保障人民权益、激发人民创造活力，用制度体系保证人民当家做主。</p>
+<h3 id="新民主主义革命理论和社会主义改造理论"><a href="#新民主主义革命理论和社会主义改造理论" class="headerlink" title="新民主主义革命理论和社会主义改造理论"></a>新民主主义革命理论和社会主义改造理论</h3><h4 id="考点-1：-近代中国的社会性质及其基本特点"><a href="#考点-1：-近代中国的社会性质及其基本特点" class="headerlink" title="考点 1： 近代中国的社会性质及其基本特点"></a><code>考点 1：</code> 近代中国的社会性质及其基本特点</h4><p>近代中国是半殖民地半封建性质的社会。近代以来中国半殖民地半封建社会的基本特点是：</p>
+<ul>
+<li>帝国主义不但操控了中国的财政和经济命脉，而且控制了中国的政治和军事力量，使中国实际上丧失了主权国和独立国的地位，成为近代中国一切灾难、祸害和贫穷落后的总根源，也是阻碍了中国社会发展的根本原因。</li>
+<li>外国资本主义的入侵，在一定程度上加速了中国封建社会自给自足的自然经济的解题，客观上促进了中国资本主义因素的发展；三十，封建剥削制度的根基————地主阶级对农民的剥削，不但依然保持着，而且同官僚买办资本和高利贷资本的剥削结合在一起，在中国社会经济生活中仍然占据显著的优势。</li>
+<li>代表新的生产关系的民族资本主义有了某些发展，并在中国的政治文化生活中起了一定的作用；但它既受外国资本的严重排挤和打击，又受本国官僚买办资本和封建势力的压抑和阻挠；同时与国外帝国主义和国内封建主义有或多或少的联系，它的力量是很弱的，因而始终没有成为中国社会经济的主要形式。</li>
+<li>中国的封建势力和帝国主义相勾结，成为帝国主义统治中的社会基础。</li>
+<li>犹豫帝国主义列强在中国划分势力范围，实行分裂剥削政策，又由于地方性农业经济的广泛存在，造成中国实际上处于长期的不统一状态，加上中国地域广大，中国的经济、政治和文化的发展，表现出极端不平衡性。</li>
+<li>在帝国主义和封建主义的双重压迫下，中国的广大人民，尤其是吧农民群众、日益贫困化以致大批破产，过着饥寒交迫和毫无政治权利的生活，中国人民经济上的贫困和政治上的不自由程度，在世界上市罕见的。</li>
+</ul>
+<p>总之，经济、政治和社会发展的极端不平衡，是半殖民地半封建中国最基本的国情，它在很大程度规定着中国革命的方式和方法，制约着中国革命的发展道路。</p>
+<h4 id="考点-2：-近代中国革命的人物和性质"><a href="#考点-2：-近代中国革命的人物和性质" class="headerlink" title="考点 2： 近代中国革命的人物和性质"></a><code>考点 2：</code> 近代中国革命的人物和性质</h4><p>中华民族面对着两大历史任务：一个是求得民族独立和人民解放；一个是实现国家繁荣富强和人民共同富裕。<br>近代中华民族的两大历史任务，不能相互代替，而是彼此联系、密不可分的。一方面，争取民族独立和人民解放是实现国家繁荣富强和人民共同富裕的前提条件；另一方面，只有国家的现代化和繁荣富强，中华民族的独立和人民的解放才能真正实现，才能从根本上巩固国家的政权、振兴民主经济、维护尊严和主权。<br>革命的性质是有社会的性质和社会主要矛盾决定的。近代中国社会的半殖民地半封建性质和中华民族的两大历史任务，决定了中国革命必须分为两个步骤。第一步，改变这个半殖民地半封建的社会形态，使之变成一个独立的民主主义的社会；第二步，使革命向前发展，建立一个社会主义社会，第一阶段中国革命的性质，不是无产阶级社会主义的，而是资产阶级民主主义的。</p>
+<h4 id="考点-3：-新民主主义革命的基本纲领"><a href="#考点-3：-新民主主义革命的基本纲领" class="headerlink" title="考点 3： 新民主主义革命的基本纲领"></a><code>考点 3：</code> 新民主主义革命的基本纲领</h4><ul>
+<li>新民主主义革命的政治纲领。基本内容是：推翻帝国主义和封建主义的统治，建立一个以工人阶级领导的，以工农联盟为基础、各革命阶级联合专政的新民主主义的共和国。</li>
+<li>新民主主义革命的经济纲领。1948年12月，毛泽东在《目前形似和我们的任务》中把新民主主义经济归纳为三大纲领：“没收封建阶级的土地归农民所有，没收蒋介石、宋子文、孔祥熙、陈立夫未收的官僚资本归新民主主义的国家所有，保护民族工商业。”</li>
+<li>新民主主义革命的文化纲领。新民主主义的文化就是“无产阶级领导的，人民大众的。反帝反封建的文化”。这种文化是无产阶级领导的、民族的、科学的、大众得分文化。</li>
+</ul>
+<h4 id="考点-4：-新民主主义革命的基本经验"><a href="#考点-4：-新民主主义革命的基本经验" class="headerlink" title="考点 4： 新民主主义革命的基本经验"></a><code>考点 4：</code> 新民主主义革命的基本经验</h4><p>毛泽东在《&lt;共产党人&gt;发刊词》中，总结了中国革命的经验，提出：“统一战线、武装斗争、党的建设，是中国共产党在中国革命中战胜敌人的三个法宝，三个主要的法宝。”</p>
+<ul>
+<li>统一战线是中国革命的主要阵线。<ul>
+<li>中国革命建立统一战线的必要性：<ul>
+<li>毛泽东指出：中国社会结构是两头小、中间打的社会，无产阶级和地主、大资产阶级都只占少数，而农民、城市小资产阶级以及其他中间阶级却占了全国人口的绝大多数。在这种情况下，无产阶级要完成反帝反封建的任务，就必须同中间阶级结成广泛的统一战线。</li>
+<li>由于反革命的力量相对强大，由于中国政治经济发展不平衡，决定了中国 革命是一个艰苦的长期的过程。</li>
+</ul>
+</li>
+<li>中国革命建立统一战线的可能性：<ul>
+<li>在半殖民地半封建的中国，最主要的社会矛盾是帝国主义和中华民族的矛盾。</li>
+<li>中国的工人、农民、城市小资产阶级占人口多数，革命要求强烈，是统一战线中的左派。</li>
+<li>中国的民族资产阶级由于他们的两面性特点，所以是统一战线中的中间派，是无产阶级应当努力的争取的力量。</li>
+<li>中国大资产阶级（即官僚买办资产阶级）历来是革命的对象，但在一定的历史时期和特殊条件下，一部分大资产阶级也可能参加统一战线，他们是统一战线中的右派，是无产阶级暂时的同盟者。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>武装斗争是中国革命的主要形式。</li>
+<li>党的建设是中国革命的伟大工程。新民主主义革命时期，中国共产党建设的主要内容和经验如下：<ul>
+<li>把党的思想建设放在党的建设的首位。</li>
+<li>加强党的作风建设。毛泽东在党的七大政治报告中概括了中国共产党的三大优良作风，就是理论和实际相结合的作风 、和人民群众紧密地联系在一起的作风以及自我批评的作风。这三大作风是中国共产党区别于其他政党的显著标志。</li>
+<li>坚持民主集中制和集体领导，是中国共产党自身建设的又一条宝贵经验。</li>
+<li>正确认识和处理党内矛盾，是促进党的团结统一、增强党的战斗力的重要保证。</li>
+<li>加强执政党建设的思想。</li>
+</ul>
+</li>
+</ul>
+<h4 id="考点-5：-新民主主义社会的基本特征"><a href="#考点-5：-新民主主义社会的基本特征" class="headerlink" title="考点 5： 新民主主义社会的基本特征"></a><code>考点 5：</code> 新民主主义社会的基本特征</h4><p>新民主主义社会的基本特征是：</p>
+<ul>
+<li>经济上实行以国营经济为主导的包括合作社经济、个体经济、国家资本主义经济和私人资本主义经济五种经济成分并存的新民主主义经济制度；</li>
+<li>政治上实行以工人阶级领导的、以工农联盟为基础的，包括小资产阶级和民族资产阶级联合专政的人民民主专政的国家制度；</li>
+<li>文化上实行发展以马克思主义为指导，民族的、科学的、大众的文化，即新民主主义文化的方针。</li>
+</ul>
+<h4 id="考点-6：-党在过度时期的总路线"><a href="#考点-6：-党在过度时期的总路线" class="headerlink" title="考点 6： 党在过度时期的总路线"></a><code>考点 6：</code> 党在过度时期的总路线</h4><p>党在过渡时期的总路线和总任务是，要在一个相当长的时期内，逐步实现国家的社会主义工业化，并逐步实现国家对农业、手工业和资本主义工商业的社会主义改造</p>
+<p>党在过渡时期的总路线，以“一化三改”为核心，包括两方面内容。</p>
+<ul>
+<li>一是逐步实现社会主义工业化，这是总路线的主体；</li>
+<li>一是逐步实现对农业、手工业和资本主义工商业的社会主义改造，这是总路线的两翼；</li>
+</ul>
+<h4 id="考点-7：-社会主义改造的历史经验"><a href="#考点-7：-社会主义改造的历史经验" class="headerlink" title="考点 7： 社会主义改造的历史经验"></a><code>考点 7：</code> 社会主义改造的历史经验</h4><ul>
+<li>坚持社会主义工业化建设和社会主义改革同时并举的方针，创造性地开辟了一条适合中国国情的具有中国特色的社会主义改造道路，实现了社会主义改造的顺利进行并促进生产力的发展</li>
+<li>采取积极引导、稳步前进、逐步过渡的方式，既避免了社会动荡和生产力的破坏，又使被改造对象逐步提高觉悟，愿意接受改造，变成社会主义劳动者</li>
+<li>运用自愿互利、典型示范、国家帮助、说服教育等原则实现了和平过渡，不仅保证了社会的稳定，而且极大地促进了社会主义事业的发展</li>
+</ul>
+<h4 id="考点-8：-确立社会主义制度的重要意义"><a href="#考点-8：-确立社会主义制度的重要意义" class="headerlink" title="考点 8： 确立社会主义制度的重要意义"></a><code>考点 8：</code> 确立社会主义制度的重要意义</h4><ul>
+<li>社会主义制度的建立，是我国历史上最深刻最伟大的社会变革，它为中国进行社会主义现代化建设事业创造了制度条件</li>
+<li>它使广大人民真正成为国家的主人，极大地巩固和扩大了工人阶级领导的、以工农联盟为基础的人民民主专政国家政权的阶级基础和群众基础</li>
+<li>它使占世界人口四分之一的东方大国进入了社会主义社会，是社会主义运动历史上又一历史性的伟大胜利</li>
+<li>它是马克思列宁主义关于社会主义改革理论在中国的正确运动和创造性地发展</li>
+</ul>
+<h3 id="社会主义本质和初级阶段理论"><a href="#社会主义本质和初级阶段理论" class="headerlink" title="社会主义本质和初级阶段理论"></a>社会主义本质和初级阶段理论</h3><h4 id="考点-1：-社会主义本质理论的科学内涵"><a href="#考点-1：-社会主义本质理论的科学内涵" class="headerlink" title="考点 1： 社会主义本质理论的科学内涵"></a><code>考点 1：</code> 社会主义本质理论的科学内涵</h4><p>社会主义本质理论的科学内涵包括一下内容：生产力方面解放生产力，发展生产力；生产关系方面的消灭剥削，消除两极分化；根本目标方面的最终实现共同富裕。社会主义本质的科学论断具有鲜明的特点：</p>
+<ul>
+<li>把发展生产力放在社会主义本质的首要地位。</li>
+<li>把发展生产力和解放生产力统一起来。</li>
+<li>把生产力和生产关系统一起来。</li>
+<li>把基本任务和根本目标统一起来。</li>
+<li>把发展过程和最终结果统一起来。</li>
+</ul>
+<h4 id="考点-2：-社会主义本质理论的重大指导意义"><a href="#考点-2：-社会主义本质理论的重大指导意义" class="headerlink" title="考点 2： 社会主义本质理论的重大指导意义"></a><code>考点 2：</code> 社会主义本质理论的重大指导意义</h4><ul>
+<li>社会主义本质理论继承了科学社会主义的基本原则，是探索建设中国特色社会主义道路的最重大的理论成果之一，是对马克思主义的重大发展。</li>
+<li>社会主义本质理论为我们既坚持公有制，又完善和发展公有制指明了方向。</li>
+<li>社会主义本质理论突破了把计划经济等一些原本不属于社会主义固有的东西当做社会主义本质特征的传统观念。</li>
+<li>社会主义本质理论反映了人民的利益和时代的要求，澄清了不合乎时代进步和社会发展规律的模糊概念，摆脱了长期以来拘泥于具体模式而忽视社会主义本质的错误倾向，深化了人们对社会主义本质的认识。</li>
+</ul>
+<h4 id="考点-3：-社会主义的根本任务是发展生产力的原因"><a href="#考点-3：-社会主义的根本任务是发展生产力的原因" class="headerlink" title="考点 3： 社会主义的根本任务是发展生产力的原因"></a><code>考点 3：</code> 社会主义的根本任务是发展生产力的原因</h4><ul>
+<li>马克思主义最注重发展生产力</li>
+<li>发展生产力是社会主义的内在要求</li>
+<li>发展生产力是显示社会主义制度优越性和巩固社会主义制度的需要</li>
+<li>社会主义初级阶段的主要矛盾决定社会主义的根本任务是发展生产力</li>
+</ul>
+<h4 id="考点-4：-社会主义初级阶段长期性的原因"><a href="#考点-4：-社会主义初级阶段长期性的原因" class="headerlink" title="考点 4： 社会主义初级阶段长期性的原因"></a><code>考点 4：</code> 社会主义初级阶段长期性的原因</h4><ul>
+<li>我国将长期处于社会主义初级阶段，是由中国特色社会主义建设的历史前提决定的。</li>
+<li>我国将长期处于社会主义初级阶段，是由我国经济、社会发展现状决定的。</li>
+<li>我国将长期处于社会主义初级阶段，是由我国社会主义现代化建设所处的国际环境决定的。</li>
+</ul>
+<h4 id="考点-5：-社会主义初级阶段理论的重要意义"><a href="#考点-5：-社会主义初级阶段理论的重要意义" class="headerlink" title="考点 5： 社会主义初级阶段理论的重要意义"></a><code>考点 5：</code> 社会主义初级阶段理论的重要意义</h4><ul>
+<li>社会主义初级阶段理论丰富和发展了马克思主义关于社会主义发展阶段的理论。</li>
+<li>社会主义初级阶段理论是中国共产党制定和执行正确的路线、方针、政策的基本依据。</li>
+<li>社会主义初级阶段理论是排除“左”“右”两方面错误的干扰，取得改革开放和社会主义现代化建设成就的锐利思想武器。</li>
+</ul>
+<h4 id="考点-6：-党在社会主义初级阶段的基本路线"><a href="#考点-6：-党在社会主义初级阶段的基本路线" class="headerlink" title="考点 6： 党在社会主义初级阶段的基本路线"></a><code>考点 6：</code> 党在社会主义初级阶段的基本路线</h4><p>中国共产党在社会主义初级阶段的基本路线是：“领导和团结全国各族人民，以经济建设为中心，坚持四项基本原则，坚持改革开放，自力更生，艰苦创业，为把我国建设成为富强民主文明和谐美丽的社会主义现代化强国而奋斗。”、“一个中心，两个基本点”是它的建明概括。</p>
+<ul>
+<li>“富强民主文明和谐美丽的社会主义现代化强国”。这是基本路线规定的党在社会主义初级阶段的奋斗目标。</li>
+<li>“一个中心，两个基本点”。这是基本路线最主要的内容，是实现社会主义现代化奋斗目标的基本途径。</li>
+<li>“领导和团结全国各族人民”。这是实现社会主义现代化奋斗目标的领导力量和依靠力量。</li>
+<li>“自力更生，艰苦创业”。这是我们党的优良传统，也是实现社会主义初级阶段奋斗目标的根本立足点。</li>
+</ul>
+<h4 id="考点-7：-邓小平社会主义本质论的特点"><a href="#考点-7：-邓小平社会主义本质论的特点" class="headerlink" title="考点 7： 邓小平社会主义本质论的特点"></a><code>考点 7：</code> 邓小平社会主义本质论的特点</h4><p>邓小平关于社会主义本质的科学论断具有鲜明的特点：</p>
+<ul>
+<li>把发展生产力放在社会主义本质的首要地位</li>
+<li>把发展生产力和解放生产力统一起来</li>
+<li>把生产力和生产关系统一起来</li>
+<li>把基本任务和根本目标统一起来</li>
+<li>把发展过程和最终结果统一起来</li>
+</ul>
+<h4 id="考点-8：-”三步走“发展战略的内容及特点"><a href="#考点-8：-”三步走“发展战略的内容及特点" class="headerlink" title="考点 8： ”三步走“发展战略的内容及特点"></a><code>考点 8：</code> ”三步走“发展战略的内容及特点</h4><p>1978年10月，党的十三大报告中正式提出：党的十一届三中全会以后，我国经济建设的战略部署大体分三步走。</p>
+<ul>
+<li>第一步，实现国民生产总值比1980年翻一番，解决人民的温饱问题。</li>
+<li>第二步，到20世纪末期，使国民生产总值再增长一倍，人民生活达到小康水平。</li>
+<li>第三步，到21世纪中叶，人均国民生产总值达到中等发达国家水平，人民生活比较富裕，基本实现现代化。</li>
+</ul>
+<p>中共十九大报告指出，综合分析国际形势和我国发展条件，从2020年到21世纪中叶可以分两个阶段来安排。第一阶段，从2020年到2035年，在全面建成小康社会的基础上，在奋斗15年，基本实现社会主义现代化。第二阶段，从2035年到21世纪中叶，在基本实现现代化的基础上，在奋斗15年，把我国建成富强民主文明和谐美丽的社会主义现代化强国。从而使“三步走”战略和步骤更加具体明确。</p>
+<p>“三步走”发展战略，从总体上规划了21世纪中叶之前我国的战略目标和战略部署，是指导全党和全国人民建设中国特色社会主义的行动纲领。它具有以下鲜明的特点：</p>
+<ul>
+<li>一是注重经济、社会全面协调可持续发展。</li>
+<li>二是以人民利益为出发点和归宿。</li>
+<li>三是有步骤地逐步推进。</li>
+<li>四是既坚持实事求是，又具有雄心壮志。</li>
+</ul>
+<h4 id="考点-9：-”全面建成小康社会“奋斗目标的新要求"><a href="#考点-9：-”全面建成小康社会“奋斗目标的新要求" class="headerlink" title="考点 9： ”全面建成小康社会“奋斗目标的新要求"></a><code>考点 9：</code> ”全面建成小康社会“奋斗目标的新要求</h4><p>在十六大确立的全面建成小康社会目标的基础上，党的十七大对全面建成小康社会奋斗目标提出了新的更高要求。这些新的更高要求是：</p>
+<ul>
+<li>增强发展协调性，努力实现经济又好又快发展</li>
+<li>扩大社会主义民主，更好地保障人民权益和社会公平正义</li>
+<li>加强文化建设，明显提高全民族文明素质</li>
+<li>加快发展社会事业，全面改善人民生活</li>
+<li>建设生态文明，基本形成节约能源资源和保护生态环境的产业结构，增长方式、消费模式。</li>
+</ul>
+<p>根据我国经济社会发展实际，党的十八大在十六大、十七大确立的全面建成小康社会目标的基础上努力实现新的要求。这些新要求是：</p>
+<ul>
+<li>经济持续健康发展</li>
+<li>人民民主不断扩大</li>
+<li>文化软实力显著增强</li>
+<li>人民生活水平全面提高</li>
+<li>资源节约型、环境友好型社会建设取得重大进展。</li>
+</ul>
+<p>十九大报告中强调，从现在到2020年，是全面建成小康社会决胜期。要按照十六大、十七大、十八大提出的全面建成小康社会各项要求，紧扣我国社会主要矛盾变化，统筹推进经济会安设、政治建设、文化建设、社会建设、生态文明建设，坚定实施科教兴国战略、人才强国战略、创新驱动发展战略、乡村振兴战略，区域协调发展战略，可持续发展战略，军民同和发展战略，突出抓重点、补短板、强弱项，特别是要坚决打好防范化解重大风险、精准脱贫、污染防治的攻坚战，使全面建成小康社会得到人民认可、经得起历史检验。</p>
+<h3 id="社会主义改革和对外开放"><a href="#社会主义改革和对外开放" class="headerlink" title="社会主义改革和对外开放"></a>社会主义改革和对外开放</h3><h4 id="考点-1：-社会主义社会的基本矛盾"><a href="#考点-1：-社会主义社会的基本矛盾" class="headerlink" title="考点 1： 社会主义社会的基本矛盾"></a><code>考点 1：</code> 社会主义社会的基本矛盾</h4><p>毛泽东关于社会主义社会基本矛盾理论的主要内容是：</p>
+<ul>
+<li>明确提出了社会主义社会基本矛盾的概念和内涵。”在社会主义社会中，基本矛盾仍然是生产关系和生产力之间的矛盾，上层建筑和经济基础之间的矛盾。“</li>
+<li>明确指出社会主义社会的基本矛盾是推动社会主义社会不断前进的根本动力。</li>
+<li>阐明了社会主义社会基本矛盾的性质。</li>
+<li>分析了社会主义社会基本矛盾的特点。</li>
+<li>全面论述了社会主义社会两类不同性质的矛盾。</li>
+</ul>
+<p>党的十一届三中全会以后，邓小平充分肯定了毛泽东关于社会主义社会基本矛盾的理论，他在总结历史经验教训的基础上，对社会主义社会的基本矛盾，特别是社会主义初级阶段的主要矛盾状况进行了深入思考，在新的实践当中丰富和发展了这一理论，为社会主义改革提供了理论基础。只要内容有：</p>
+<ul>
+<li>指出判断一种生产关系是否优越的主要标准。</li>
+<li>提出在社会主义社会依然有解放生产力的问题。</li>
+<li>把社会主义社会基本矛盾、社会主义初级阶段的主要矛盾和根本任务统一起来。</li>
+<li>指出了解决社会主义基本矛盾和社会主义初级阶段主要矛盾的根本途径是改革。</li>
+</ul>
+<h4 id="考点-2：-改革是中国的第二次革命的原因"><a href="#考点-2：-改革是中国的第二次革命的原因" class="headerlink" title="考点 2： 改革是中国的第二次革命的原因"></a><code>考点 2：</code> 改革是中国的第二次革命的原因</h4><ul>
+<li>改革是为了扫除生产力发展的障碍，解放生产力。革命是解放生产力，改革也是解放生产力，从这个意义上说，改革也可以叫做革命。</li>
+<li>改革是对原有体制进行的根本性变革。我国目前的改革不同于社会正常发展中始终会存在的解决社会基本矛盾的一般性变革，而是对存在着严重弊端的旧体制进行全面的重大变革，特别是对经济体制进行全面创新，把原有高度集中的计划经济体制转变为社会主义市场经济体制。</li>
+<li>改革引起了经济生活、社会生活、思想观念等一系列重大变化。改革是在党的领导下对原有的经济体会和其他体制进行根本性变革，改革是社会主义制度的自我完善和发展。</li>
+</ul>
+<h4 id="考点-3：-正确处理改革、发展、稳定的关系"><a href="#考点-3：-正确处理改革、发展、稳定的关系" class="headerlink" title="考点 3： 正确处理改革、发展、稳定的关系"></a><code>考点 3：</code> 正确处理改革、发展、稳定的关系</h4><p>发展是目的，改革是动力，稳定是前提。正确认识和处理改革、发展、稳定三者的辩证关系具有重要意义。</p>
+<ul>
+<li>能否正确认识和处理改革、发展、稳定三者的辩证关系，是社会主义改革事业成败的关键；</li>
+<li>正确认识和处理改革、发展、稳定三者的辩证关系，可以使我们在实践中更好地坚持前进的方向，减少失误，少走弯路；</li>
+<li>正确认识和处理改革、发展，稳定三者的辩证关系，有助于培养人们的辩证头脑，有助于树立全局观念，有助于确立战略眼光，增强人们在工作中分析是我、把握规律的能力。</li>
+</ul>
+<h4 id="考点-4：-我国对外开放的成就"><a href="#考点-4：-我国对外开放的成就" class="headerlink" title="考点 4： 我国对外开放的成就"></a><code>考点 4：</code> 我国对外开放的成就</h4><ul>
+<li>对外经济贸易实现历史性飞跃</li>
+<li>引进外资不断升级，推动全面对外开放格局的形成</li>
+<li>”走出去“战略稳步推进</li>
+<li>加入世贸组织，对外开放不断扩大</li>
+</ul>
+<h4 id="考点-5：-不断提高对外开放水平的具体做法"><a href="#考点-5：-不断提高对外开放水平的具体做法" class="headerlink" title="考点 5： 不断提高对外开放水平的具体做法"></a><code>考点 5：</code> 不断提高对外开放水平的具体做法</h4><ul>
+<li>要统筹安排对内对外经济工作</li>
+<li>加快转变外贸发展方式，优化进出口商品结构</li>
+<li>继续实施”引进来“和”走出去“的战略，创新对外投资和合作方式</li>
+</ul>
+<p>开放带来进步，封闭必然落后。进入新时代，中国开放的大门不会关闭，只会越开越大。我们要在以习近平同志为总书记的党中央领导下，高举邓小平理论、”三个代表“重要思想、科学发展观的伟大旗帜，在各项工作中全面准确贯彻落实习近平新时代中国特色社会主义思想。以”一带一路“建设为重点，坚持引进来和走出去并重，遵循共商共建共享原则，加强创新能力开放合作，形成陆海内外联动、东西双向互济开放格局。</p>
+<h3 id="建设中国特色社会主义经济"><a href="#建设中国特色社会主义经济" class="headerlink" title="建设中国特色社会主义经济"></a>建设中国特色社会主义经济</h3><h4 id="考点-1：-以公有制为主体、多种所有制经济共同发展的必然性"><a href="#考点-1：-以公有制为主体、多种所有制经济共同发展的必然性" class="headerlink" title="考点 1： 以公有制为主体、多种所有制经济共同发展的必然性"></a><code>考点 1：</code> 以公有制为主体、多种所有制经济共同发展的必然性</h4><p>党的十五大报告指出：”公有制为主体、多种所有制经济共同发展，是我国社会主义初级阶段的一项基本经济制度。“这是由我国的基本国情决定的。</p>
+<ul>
+<li>我国是社会主义国家，必须坚持公有制作为社会主义经济制度的基础</li>
+<li>我国社会主义初级阶段，需要在公有制为主体的条件下发展多种所有制经济</li>
+<li>一切符合”三个有利于“的所有制的形式都可以而且应该用来为社会主义服务</li>
+</ul>
+<h4 id="考点-2：-公有制主体地位的体现及坚持公有制主体地位的原因"><a href="#考点-2：-公有制主体地位的体现及坚持公有制主体地位的原因" class="headerlink" title="考点 2： 公有制主体地位的体现及坚持公有制主体地位的原因"></a><code>考点 2：</code> 公有制主体地位的体现及坚持公有制主体地位的原因</h4><p>在我国社会主义初级阶段，公有制主体地位主要体现在以下几个方面：</p>
+<ul>
+<li>公有资产在社会总资产中占优势</li>
+<li>国有经济控制国民经济命脉，对经济发展起主导作用。国有经济起主导作用，主要体现在控制力上。</li>
+</ul>
+<p>在社会主义初级阶段，必须坚持公有制的主体地位。这是因为：</p>
+<ul>
+<li>首先，生产资料公有制是社会主义的一条根本原则；</li>
+<li>其次，坚持公有制的主体地位是社会生产力发展的客观要求；</li>
+<li>再次，坚持公有制的主体地位是保证其他所有制经济为社会主义服务的决定性条件；</li>
+<li>最后，坚持公有制的主体地位是贯彻按劳分配，实现共同富裕的根本保证。</li>
+</ul>
+<h4 id="考点-3：-按劳分配的内容及其必然性"><a href="#考点-3：-按劳分配的内容及其必然性" class="headerlink" title="考点 3： 按劳分配的内容及其必然性"></a><code>考点 3：</code> 按劳分配的内容及其必然性</h4><p>按劳分配的内容是：凡是有劳动能力的人都应尽自己的能力为社会劳动，社会以劳动作为分配个人消费品的尺度，按照劳动者提供的劳动数量和质量分配个人消费品，等量劳动获取等量报酬，多劳多得，少劳少得，不劳动者不得食。</p>
+<p>社会主义社会在个人消费品分配领域必然实行按劳分配原则。</p>
+<ul>
+<li>第一，社会主义初级阶段生产资料公有制，是实行按劳分配的前提条件；</li>
+<li>第二，社会主义初级阶段生产力的发展水平，是实行按劳分配的物质基础；</li>
+<li>第三，社会主义初级阶段劳动本身所具有的特点，是实行按劳分配的直接原因。</li>
+</ul>
+<h4 id="考点-4：-社会主义初级阶段实行以按劳分配为主体、多种分配方式并存的客观必然性"><a href="#考点-4：-社会主义初级阶段实行以按劳分配为主体、多种分配方式并存的客观必然性" class="headerlink" title="考点 4： 社会主义初级阶段实行以按劳分配为主体、多种分配方式并存的客观必然性"></a><code>考点 4：</code> 社会主义初级阶段实行以按劳分配为主体、多种分配方式并存的客观必然性</h4><p>以按劳分配为主体，多种分配方式同时并存，是我国社会主义初级阶段的个人收入分配制度。这是由我国社会主义初级阶段的客观经济条件决定的</p>
+<ul>
+<li>以公有制主体、多种所有制经济长期共同发展的所有制结构，决定了以按劳分配为主体，多种分配方式同时并存的分配结构</li>
+<li>公有制实现形式的多样性也决定了分配形式的多样化</li>
+<li>它是社会主义市场经济体制的内在要求</li>
+</ul>
+<h4 id="考点-5：-社会主义市场经济体制的基本特征"><a href="#考点-5：-社会主义市场经济体制的基本特征" class="headerlink" title="考点 5： 社会主义市场经济体制的基本特征"></a><code>考点 5：</code> 社会主义市场经济体制的基本特征</h4><ul>
+<li>在所有制结构上，以公有制为主体，多种所有制经济共同发展，一切符合”三个有利于“的所有制形式都可以而且应该用来为社会主义服务</li>
+<li>再分配制度上，坚持以按劳分配为主体、多种分配方式并存的制度</li>
+<li>在宏观调控上，由于存在着作为主体的公有制经济的人民民主专政的社会主义国家政权，国家对市场的调控具有较雄厚的物质基础、牢固的政治基础和广泛的群众基础，对市场的宏观调控能力可以较资本主义国家强得多</li>
+</ul>
+<h4 id="考点-6：-新型工业化道路的特征"><a href="#考点-6：-新型工业化道路的特征" class="headerlink" title="考点 6： 新型工业化道路的特征"></a><code>考点 6：</code> 新型工业化道路的特征</h4><ul>
+<li>同信息化等现代高科技发展紧密结合</li>
+<li>注重经济发展同资源环境相协调</li>
+<li>坚持城乡协调发展</li>
+<li>实现资金技术密集型产业同劳动密集型产业相结合</li>
+</ul>
+<h4 id="考点-7：-乡村振兴战略"><a href="#考点-7：-乡村振兴战略" class="headerlink" title="考点 7： 乡村振兴战略"></a><code>考点 7：</code> 乡村振兴战略</h4><p>农业农村农民问题是关系国计民生的根本性问题，必须始终把解决好”三农“问题作为全党工作重中之重。要坚持农业农村优先发展，按照产业兴旺、生态宜居、乡风文明、治理有效、生活富裕的总要求，建立健全城乡融合发展体制机制和政策体系，加快推进农业农村现代化。巩固和完善农村基本经营制度，深化农村土地制度改革，完善承包地”三权“分置制度。保持土地承包关系稳定并长久不变，第二轮土地承包到期后再延长三十年。深化农村产权制度改革，保障农民财产权益，壮大集体经济。确保国家粮食安全，把中国人的饭碗牢牢端在自己手中。构建现代化产业体系、生产体系、经营体系，完善农业支持保护制度，发展多种形式适度规模经营部，培育新型农业经济主体，健全农业社会化服务体系，实现小农户和现代农业发展有机衔接。促进农村一二三产业融合发展，支持和鼓励农民就业创业就业，拓宽增收渠道。加强农村基层基础工作，健全自治、法治、德治相结合的乡村治理体系。培养造就一支懂农业、爱农村、爱农民的”三农“工作队伍。</p>
+<h4 id="考点-8：-建设资源节约型、环境友好型社会的具体做法"><a href="#考点-8：-建设资源节约型、环境友好型社会的具体做法" class="headerlink" title="考点 8： 建设资源节约型、环境友好型社会的具体做法"></a><code>考点 8：</code> 建设资源节约型、环境友好型社会的具体做法</h4><ul>
+<li>要充分考虑人口承载力、资源支撑力、生态环境承受力，正确处理经济发展与人口、资源、环境的关系</li>
+<li>要发展循环经济、提高资源的利用效率</li>
+<li>要加大生态环境保护力度，建设生态文明</li>
+</ul>
+<h3 id="建设中国特色社会主义政治"><a href="#建设中国特色社会主义政治" class="headerlink" title="建设中国特色社会主义政治"></a>建设中国特色社会主义政治</h3><h4 id="考点-1：-党的领导、人民当家做主和依法治国之间的关系"><a href="#考点-1：-党的领导、人民当家做主和依法治国之间的关系" class="headerlink" title="考点 1： 党的领导、人民当家做主和依法治国之间的关系"></a><code>考点 1：</code> 党的领导、人民当家做主和依法治国之间的关系</h4><p>党的十九大报告明确指出，我国是工人阶级领导的，以工农联盟为基础的人民民主专政的社会主义国家，国家一切权利属于人民。我国社会主义民主是维护人民根本利益的最广泛、最真实、最管用的民主。发展社会主义民主政治就是要体现人民意志、保障人民权益、激发人民创造活力，用制度体系保证人民当家做主。</p>
 <ul>
 <li>中国共产党的领导，是中国特色社会主义政治文明具有决定意义的特点</li>
 <li>人命当家做主是社会主义民主政治的本质特征</li>
@@ -1150,7 +1378,7 @@
 </ul>
 <h4 id="考点-4：-社会主义核心价值体系的主要内容及其相互关系"><a href="#考点-4：-社会主义核心价值体系的主要内容及其相互关系" class="headerlink" title="考点 4： 社会主义核心价值体系的主要内容及其相互关系"></a><code>考点 4：</code> 社会主义核心价值体系的主要内容及其相互关系</h4><p>社会主义核心价值体系的基本内容包括马克思主义指导思想、中国特色社会主义共同理想、以爱国主义为核心的民主精神和以改革创新为核心的时代精神、社会主义荣辱观、社会主义核心价值观。这五个方面的内容，相互联系，相互贯通，相互促进，是一个有机统一的整体。</p>
 <ul>
-<li>坚持马克思主义的指导地位，捉住了社会主义核心价值体系的灵魂；</li>
+<li>坚持马克思主义的指导地位，抓住了社会主义核心价值体系的灵魂；</li>
 <li>树立共同理想，突出了社会主义核心价值体系的主题；</li>
 <li>培育和弘扬民主精神与时代精神，掌握了社会主义核心价值体系的精髓；</li>
 <li>树立和践行社会主义荣辱观，打牢了社会主义核心价值体系的急促；</li>
@@ -1163,7 +1391,7 @@
 <li>建设社会主义核心价值体系，是增强民族凝聚力、提高国家竞争力的迫切需要</li>
 </ul>
 <h3 id="构建社会主义和谐社会"><a href="#构建社会主义和谐社会" class="headerlink" title="构建社会主义和谐社会"></a>构建社会主义和谐社会</h3><h4 id="考点-1：-提出构建社会主义和谐社会的现实依据"><a href="#考点-1：-提出构建社会主义和谐社会的现实依据" class="headerlink" title="考点 1： 提出构建社会主义和谐社会的现实依据"></a><code>考点 1：</code> 提出构建社会主义和谐社会的现实依据</h4><ul>
-<li>这是我们捉住和用好重要战略机遇期、实现全面建成小康社会宏伟目标的必然要求</li>
+<li>这是我们抓住和用好重要战略机遇期、实现全面建成小康社会宏伟目标的必然要求</li>
 <li>这是我们把握复杂多变的国际形势、有力应对来自国际环境的各种挑战和风险的必然要求</li>
 <li>这是巩固党执政地位的社会基础、实现党执政历史人物的必然要求</li>
 </ul>
@@ -1175,7 +1403,7 @@
 </ul>
 </li>
 <li>构建社会主义和谐社会的现实意义：<ul>
-<li>构建社会主义和谐社会，有利于我们捉住和用好重要战略机遇期、实现富强民主文明和谐的社会主义现代化宏伟目标</li>
+<li>构建社会主义和谐社会，有利于我们抓住和用好重要战略机遇期、实现富强民主文明和谐的社会主义现代化宏伟目标</li>
 <li>构建社会主义和谐社会，有利于我们准确把握复杂多变的国际形势、有力应对来自国际环境的各种挑战和风险</li>
 <li>构建社会主义和谐社会，有利于巩固党执政的社会基础、实现党执政的历史人物</li>
 </ul>
@@ -1301,7 +1529,7 @@
 <li>加强党的组织建设，要按照政治坚定、求真务实、开拓创新、勤政廉洁、团结协作的要求，着力把各级领导班子建设成为坚强领导集体；要深化干部人事制度改革，着力建设一支善于治国理政的高素质干部队伍；要加强和改进党的基层组织建设，着力使之成为坚强的战斗堡垒。</li>
 <li>加强党的作风建设，关系党的形象，关系人心向背，关系党的生命。党的作风建设的核心是着力保持党同人民群众的血肉联系。</li>
 <li>加强党的制度建设，是各项建设的重要保证，并贯穿于党的建设的各个方面。</li>
-<li>加强反腐倡廉建设，是关系党的生死存亡的重大问题，是党必须始终捉好的的重大政治人物。</li>
+<li>加强反腐倡廉建设，是关系党的生死存亡的重大问题，是党必须始终抓好的的重大政治人物。</li>
 </ul>
 <h4 id="考点-6：-加强党的执政能力建设的具体做法"><a href="#考点-6：-加强党的执政能力建设的具体做法" class="headerlink" title="考点 6： 加强党的执政能力建设的具体做法"></a><code>考点 6：</code> 加强党的执政能力建设的具体做法</h4><ul>
 <li>加强党的执政能力建设的指导思想。加强党的执政能力建设必须以马克思列宁主义、毛浙东思想、邓小平理论和”三个代表“重要思想、科学发展观、习近平新时代中国特色社会主义思想为指导，以保持党同人民群众的血肉联系为核心，以建设高素质干部队伍为基础，努力体现时代性，把握规律性，富于创造性。</li>
